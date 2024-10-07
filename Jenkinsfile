@@ -51,4 +51,17 @@ pipeline {
         }
     }
 
+post {
+    success {
+        mail to: 's220105594@gmail.com',
+             subject: "Pipeline Success: ${env.JOB_NAME}",
+             body: "Good news! The pipeline succeeded."
+    }
+    failure {
+        mail to: 's220105594@gmail.com',
+             subject: "Pipeline Failed: ${env.JOB_NAME}",
+             body: "Oops! The pipeline failed."
+    }
+}
+
 }
